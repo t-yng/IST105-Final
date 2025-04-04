@@ -2,7 +2,7 @@
 $PYTHON_SCRIPT = "party_planner.py";
 
 $party_items = $_GET['party-items'];
-$host = $_SERVER['REMOTE_ADDR'];
+$host = $_SERVER['SERVER_ADDR'];
 
 $party_items_input = implode(',', $party_items);
 
