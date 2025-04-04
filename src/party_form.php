@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment#8 | IST105</title>
+    <title>Final Exam | IST105</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -47,7 +47,7 @@
     </style>
   </head>
   <body>
-    <h1>Assignment#8 IST105</h1>
+    <h1>Final Exam IST105</h1>
     <form action="/process.php" method="GET">
       <div class="form-group">
         <h2>Select Party Items: </h2>

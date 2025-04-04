@@ -25,7 +25,7 @@ $output = json_decode($output[0], true);
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment#7 Process | IST105</title>
+    <title>Final Exam | IST105</title>
   </head>
   <body>
     <h1>Webserver <?= $host ?>: </h1>
