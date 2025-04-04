@@ -49,6 +49,6 @@ $output = json_decode($output[0], true);
       <p><b>Final Party Code: </b><?= $output['final_party_code'] ?></p>
       <p><b>Message: <?= $output['message'] ?></b></p>
     </section>
-    <a href='/form.php'>Back to form</a>
+    <a href='/party_form.php'>Back to form</a>
   </body>
 </html>
