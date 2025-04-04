@@ -11,6 +11,6 @@ WORKDIR /var/www/html
 COPY src/ .
 
 # Add execute permission to process_input.py
-RUN chmod +x network_config.py
+RUN chmod +x party_planner.py
 
 EXPOSE 80

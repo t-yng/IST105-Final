@@ -1,12 +1,14 @@
 <?php
-$PYTHON_SCRIPT = "network_config.py";
+$PYTHON_SCRIPT = "party_planner.py";
 
-$mac_address = $_GET['mac_address'];
-$dhcp_version = $_GET['dhcp_version'];
+$party_items = $_GET['party-items'];
+$host = $_SERVER['HTTP_HOST'];
+
+$party_items_input = implode(',', $party_items);
 
 $output = [];
 $result = 0;
-exec("python3 $PYTHON_SCRIPT '$mac_address' $dhcp_version", $output, $result);
+exec("python3 $PYTHON_SCRIPT '$party_items_input'", $output, $result);
 
 if($result !== 0) {
   echo "<h1 style='color: red'>$output[0]</h1>";
@@ -26,18 +28,26 @@ $output = json_decode($output[0], true);
     <title>Assignment#7 Process | IST105</title>
   </head>
   <body>
+    <h1>Webserver <?= $host ?>: </h1>
     <section>
-      <h2>Input</h2>
-      <p>Mac Address: <?= $mac_address ?>
-      <p>DHCP Version: <?= $dhcp_version ?>
+      <h2>Available Party Items:</h2>
+      <ul>
+        <?php foreach($output['party_items'] as $item): ?>
+          <li><?= $item["id"] ?>: <?= $item["name"] ?></li>
+        <?php endforeach; ?>
+      </ul>
     </section>
     <section>
-      <h2>Output (Assigned IP and Lease Info):</h2>
-      <p>mac_address: <?= $output['mac_address'] ?></p>
-      <p>Assigned IP: <?= $output['ip'] ?></p>
-      <?php if(isset($output['lease_time'])): ?>
-        <p>Lease Time: <?= $output['lease_time'] . " seconds" ?></p>
-      <?php endif; ?>
+      <h2>Input:</h2>
+      <p><b>Selected item indices: <?= $output['indices'] ?></b></p>
+    </section>
+    <section>
+      <h2>Output: </h2>
+      <p><b>Selected Items: </b><?= $output['picked_items'] ?></p>
+      <p><b>Base Party Code: </b><?= $output['base_party_code'] ?></p>
+      <p><b>Adjusted Party Code: </b><?= $output['adjusted_party_code'] ?></p>
+      <p><b>Final Party Code: </b><?= $output['final_party_code'] ?></p>
+      <p><b>Message: <?= $output['message'] ?></b></p>
     </section>
     <a href='/form.php'>Back to form</a>
   </body>

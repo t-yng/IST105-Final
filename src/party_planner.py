@@ -1,3 +1,4 @@
+import json
 import sys
 
 
@@ -93,13 +94,13 @@ def get_base_party_code(items):
 def get_final_party_code(base_code):
   if base_code == 0:
     final_code = base_code + 5
-    return (final_code, "Epic Party Incoming!")
+    return (5, final_code, "Epic Party Incoming!")
   elif base_code > 5:
     final_code = base_code - 2
-    return (final_code, "Let's keep it classy!")
+    return (-2, final_code, "Let's keep it classy!")
   else:
     final_code = base_code
-    return (final_code, "Chill vibes only!")
+    return (0, final_code, "Chill vibes only!")
 
 indices = sys.argv[1].replace(" ", "").split(',')
 indices = [int(i) for i in indices]
@@ -107,6 +108,17 @@ indices = [int(i) for i in indices]
 picked_party_items = pick_party_items(indices)
 
 base_code = get_base_party_code(picked_party_items)
-final_code, message = get_final_party_code(base_code)
+adjust_party_code_value, final_code, message = get_final_party_code(base_code)
 
-print(final_code, message)
+output = {
+  "party_items": party_items,
+  "indices": ", ".join(list(map(str, indices))),
+  "picked_items": ", ".join([item["name"] for item in picked_party_items]),
+  "base_party_code": base_code,
+  "adjusted_party_code": f"{base_code} {'+' if adjust_party_code_value > 0 else '-'} {abs(adjust_party_code_value)} = {final_code}",
+  "final_party_code": final_code,
+  "message": message,
+}
+
+print(json.dumps(output))
+

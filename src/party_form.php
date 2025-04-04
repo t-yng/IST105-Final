@@ -23,17 +23,11 @@
 
       .form-group {
         position: relative;
-        left: -16px;
         margin-bottom: 15px;
       }
 
       label {
         margin-right: 6px;
-      }
-
-      input {
-        width: 140px;
-        padding: 5px;
       }
 
       button {
@@ -56,15 +50,67 @@
     <h1>Assignment#8 IST105</h1>
     <form action="/process.php" method="GET">
       <div class="form-group">
-        <label for="mac_address">Mac Address: </label>
-        <input type="text" id="mac_address" name="mac_address" placeholder="00:00:00:00:00:00" />
-      </div>
-      <div class="form-group">
-        <label for="dhcp_version">DHCP Version: </label>
-        <select id="dhcp_version" name="dhcp_version">
-          <option value="DHCPv4">DHCPv4</option>
-          <option value="DHCPv6">DHCPv6</option>
-        </select>
+        <h2>Select Party Items: </h2>
+        <div>
+          <input type="checkbox" id="cake" name="party-items[]" value="0" />
+          <label for="cake">Cake</label>
+        </div>
+        <div>
+          <input type="checkbox" id="balloons" name="party-items[]" value="1" />
+          <label for="balloons">Balloons</label>
+        </div>
+        <div>
+          <input type="checkbox" id="music_system" name="party-items[]" value="2" />
+          <label for="music_system">Music System</label>
+        </div>
+        <div>
+          <input type="checkbox" id="lights" name="party-items[]" value="3" />
+          <label for="lights">Lights</label>
+        </div>
+        <div>
+          <input type="checkbox" id="catering_service" name="party-items[]" value="4" />
+          <label for="catering_service">Catering Service</label>
+        </div>
+        <div>
+          <input type="checkbox" id="dj" name="party-items[]" value="5" />
+          <label for="dj">DJ</label>
+        </div>
+        <div>
+          <input type="checkbox" id="photo_booth" name="party-items[]" value="6" />
+          <label for="photo_booth">Photo Booth</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tables" name="party-items[]" value="7" />
+          <label for="tables">Tables</label>
+        </div>
+        <div>
+          <input type="checkbox" id="chairs" name="party-items[]" value="8" />
+          <label for="chairs">Chairs</label>
+        </div>
+        <div>
+          <input type="checkbox" id="drinks" name="party-items[]" value="9" />
+          <label for="drinks">Drinks</label>
+        </div>
+        <div>
+          <input type="checkbox" id="party_hats" name="party-items[]" value="10" />
+          <label for="party_hats">Party Hats</label>
+        </div>
+        <div>
+          <input type="checkbox" id="streamers" name="party-items[]" value="11" />
+          <label for="streamers">Streamers</label>
+        </div>
+        <div>
+          <input type="checkbox" id="invitation_cards" name="party-items[]" value="12" />
+          <label for="invitation_cards">Invitation Cards</label>
+        </div>
+        <div>
+          <input type="checkbox" id="party_games" name="party-items[]" value="13" />
+          <label for="party_games">Party Games</label>
+        </div>
+        <div>
+          <input type="checkbox" id="cleaning_service" name="party-items[]" value="14" />
+          <label for="cleaning_service">Cleaning Service</label>
+        </div>
       </div>
       <button>Submit</button>
     </form>
